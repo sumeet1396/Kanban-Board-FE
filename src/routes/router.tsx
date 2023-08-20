@@ -1,4 +1,4 @@
-import { Dashboard, Login, Signup } from "../Pages";
+import { Dashboard, Login, Signup, ForgetPassword } from "../Pages";
 import ProtectedRoutes from "./ProtectedRoutes";
 
 const routes = [
@@ -17,6 +17,10 @@ const routes = [
     {
         path: '/signup',
         element: <Signup />
+    },
+    {
+        path: 'forgot-password',
+        element: <ForgetPassword />
     }
 ];
 

@@ -18,4 +18,12 @@ export interface formFieldsInterface {
     userCode?: string;
     groupCode?: string;
     [x: string | number | symbol]: unknown;
-  }
+}
+
+export interface loginInterface {
+    payload: {
+        username: string;
+        password: string;
+    }
+    type: string;
+}
