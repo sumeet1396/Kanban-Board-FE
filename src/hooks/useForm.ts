@@ -14,6 +14,7 @@ const validate = (values: any, validationSchema: any) => {
   for (const field in values) {
     if (validationSchema?.[field]) {
       const validate = validationSchema?.[field];
+      console.log({validate})
       if (validate?.[CHECK_EMPTY] && values?.[field].trim() === '')
         errors[field] = `${FIELD_LABELS?.[field]} is required`;
       if (validate?.[IS_EMAIL] && !emailRegex.test(values?.[field])) errors[field] = `Please add a valid email`;
