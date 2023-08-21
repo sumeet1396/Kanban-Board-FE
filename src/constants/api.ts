@@ -1,7 +1,5 @@
 import { BASE_URL } from "../config/config";
 
-console.log(BASE_URL)
-
 const apiRoutes = {
     authenticate: {
         login: BASE_URL+'/kanban/api/v1/users/login',

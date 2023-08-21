@@ -21,10 +21,8 @@ const validate = (values: any, validationSchema: any) => {
       if (validate?.[IS_IMAGE] && !imgRegex.test(values?.[field])) errors[field] = `Image URL is invalid`;
       if (validate?.[IS_PASSWORD] && !pattern.test(values?.[field]))
         errors[field] = `Passowrd should contain one uppercase, lowercase, number & symbol in it`;
-      if (validate?.[IS_NUMBER] && isNaN(values?.[field])) {
-        console.log(typeof values?.[field]);
+      if (validate?.[IS_NUMBER] && isNaN(values?.[field])) 
         errors[field] = `Please add a valid ${FIELD_LABELS?.[field]}`;
-      }
       if (validate?.[MATCH_PASSOWRD] && values?.[field] !== values?.newPassowrd)
         errors[field] = `Password does not match`;
     }

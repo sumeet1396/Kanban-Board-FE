@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const INITIAL_STATE: any = {
-  token: 'token',
+  token: '',
 };
 
 const loginSlice = createSlice({

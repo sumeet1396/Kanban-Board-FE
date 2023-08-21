@@ -24,6 +24,8 @@ export interface loginInterface {
     payload: {
         username: string;
         password: string;
+        enabled: boolean;
+        callback: () => void;
     }
     type: string;
 }
