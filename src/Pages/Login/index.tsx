@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import useForm from '../../hooks/useForm';
 import Input from '../../Components/Input';
 import Button from '../../Components/Button';
@@ -7,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/actions/loginActions';
+import { Switch } from '@headlessui/react'
 
 const { CHECK_EMPTY } = VALIDATIONS_KEYS;
 
@@ -22,11 +24,18 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const [enabled, setEnabled] = useState(false)
+
   async function handleLogin(value: any) {
     console.log(value);
-    dispatch(login({username: values?.username, password: values?.password}))
+    dispatch(login({username: values?.username, password: values?.password, enabled, callback: handleRedirect}))
   }
-  console.log({ errors });
+
+  const handleRedirect = () => {
+    console.log("REDIRECT");
+    navigate('/')
+  }
+
   return (
     <div className="w-full h-screen bg-cyan-500">
       <div className="h-full flex flex-wrap justify-center content-center">
@@ -51,6 +60,22 @@ const Login = () => {
               handleChange={handleChange}
               layout="column"
             />
+            <div>
+                <Switch
+                    checked={enabled}
+                    onChange={setEnabled}
+                    className={`${
+                        enabled ? 'bg-blue-600' : 'bg-gray-200'
+                    } relative inline-flex h-6 w-11 items-center rounded-full`}
+                    >
+                    <span className="sr-only">Remember me</span>
+                    <span
+                        className={`${
+                        enabled ? 'translate-x-6' : 'translate-x-1'
+                        } inline-block h-4 w-4 transform rounded-full bg-white transition`}
+                    />
+                </Switch>
+            </div>
             <div>
                 <Link to='/forgot-password'>Forgot password</Link>
             </div>
