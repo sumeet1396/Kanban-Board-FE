@@ -27,12 +27,10 @@ const Login = () => {
   const [enabled, setEnabled] = useState(false)
 
   async function handleLogin(value: any) {
-    console.log(value);
     dispatch(login({username: values?.username, password: values?.password, enabled, callback: handleRedirect}))
   }
 
   const handleRedirect = () => {
-    console.log("REDIRECT");
     navigate('/')
   }
 

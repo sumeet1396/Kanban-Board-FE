@@ -29,3 +29,11 @@ export interface loginInterface {
     }
     type: string;
 }
+
+export interface fieldSwitchInterface {
+    type: string;
+    value: any;
+    error: any;
+    data: any;
+    handleChange: () => {};
+}
